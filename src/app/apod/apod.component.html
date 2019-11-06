@@ -1,11 +1,13 @@
-<main *ngIf="apod">
+ <!-- <main *ngIf="apod">
     <h1>{{ apod.title }}</h1>
-    <!-- add the Random button to our page -->
-    <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
-  </main>
+
+  </main>  -->
+
   <main *ngIf="apod">
   
     <h1>{{ apod.title }}</h1>
+    <!-- add the Random button to our page  -->
+    <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
   
     <!-- 
       Placing square brackets around an attribute creates a data binding. 
@@ -35,7 +37,7 @@
         empty we will not attempt to show it
       -->
       <!-- <span *ngIf="apod.copyright">&copy; {{ apod.copyright }} </span> -->
-      
+
       <!-- Start by wrapping the iframe in a div with an id of video. Then adding class="copy" to the copyright spa -->
         <span *ngIf="apod.copyright" class="copy">&copy; {{ apod.copyright }} </span>
 
