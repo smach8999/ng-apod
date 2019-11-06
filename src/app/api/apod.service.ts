@@ -31,15 +31,18 @@ constructor(
 }
 //  added end
 
-  //  removed getApod(): string{
+  //  removed v1 getApod(): string{
   //   return this.ngApodConfig.key;
 
-  //  added
-  //Return an Observable Apod model
-    getApod(): Observable<Apod>{
-      //Make a get request over HTTP
-      return this.http.get<Apod>(this.url);
-  //  added end
-  }
+  //  added v2
+  // //Return an Observable Apod model
+  //   getApod(): Observable<Apod>{
+  //     //Make a get request over HTTP
+  //     return this.http.get<Apod>(this.url);
+  // //  added v2 end
 
+  //  v3  added ApodService.getApod()   accept a date string. That date string will then be passed into the API call.
+   getApod(date:string): Observable<Apod>{
+    return this.http.get<Apod>(`${this.url}&date=${date}`);
+  }
 }
