@@ -21,14 +21,24 @@
     <!-- <iframe *ngIf="apod.media_type==='video'" [src]="apod.url" frameborder="0" allowfullscreen></iframe> -->
 
     <!-- piping the results of apod.url into the safe pipe will allow the video to display. -->
-    <iframe *ngIf="apod.media_type==='video'" [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+    <!-- <iframe *ngIf="apod.media_type==='video'" [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe> -->
+
+    <!-- Start by wrapping the iframe in a div with an id of video. Then adding class="copy" to the copyright spa -->
+    <div id="video" *ngIf="apod.media_type==='video'">
+        <iframe [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+    </div>
+      
 
     <div>
       <!-- 
         Only select images have a copyright, if apod.copyright is 
         empty we will not attempt to show it
       -->
-      <span *ngIf="apod.copyright">&copy; {{ apod.copyright }} </span>
+      <!-- <span *ngIf="apod.copyright">&copy; {{ apod.copyright }} </span> -->
+      
+      <!-- Start by wrapping the iframe in a div with an id of video. Then adding class="copy" to the copyright spa -->
+        <span *ngIf="apod.copyright" class="copy">&copy; {{ apod.copyright }} </span>
+
       {{ apod.date }}
     </div>
   
